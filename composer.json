@@ -1,9 +1,9 @@
 {
     "name": "magedevgroup/module-admin-scim-okta",
-    "description": "Okta provider plugin for the admin-scim SCIM 2.0 server — normalizes Okta's active/group-push specifics and documents the Okta SCIM app setup. Installing it pulls magedevgroup/module-admin-scim (and, transitively, sso-core).",
+    "description": "Okta provider plugin for the admin-scim SCIM 2.0 server — normalizes Okta's active/group-push specifics and documents the Okta SCIM app setup. Installing it pulls magedevgroup/module-admin-scim.",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "require": {
         "php": "~8.3.0||~8.4.0||~8.5.0",
         "magento/framework": ">=103.0",
