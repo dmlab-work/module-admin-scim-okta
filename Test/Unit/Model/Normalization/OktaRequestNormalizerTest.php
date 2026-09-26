@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimOkta\Test\Unit\Model\Normalization;
+namespace DmLab\AdminScimOkta\Test\Unit\Model\Normalization;
 
-use MageDevGroup\AdminScim\Api\RequestNormalizerInterface;
-use MageDevGroup\AdminScimOkta\Model\Normalization\OktaRequestNormalizer;
+use DmLab\AdminScim\Api\RequestNormalizerInterface;
+use DmLab\AdminScimOkta\Model\Normalization\OktaRequestNormalizer;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
