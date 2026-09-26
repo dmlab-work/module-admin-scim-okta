@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimOkta\Model\Okta;
+namespace DmLab\AdminScimOkta\Model\Okta;
 
 use Magento\Framework\Escaper;
-use MageDevGroup\AdminScim\Model\Discovery\EndpointUrlBuilder;
+use DmLab\AdminScim\Model\Discovery\EndpointUrlBuilder;
 
 /**
  * Renders the admin setup surface for wiring an Okta SCIM app to this store.
@@ -47,7 +47,7 @@ class ScimSetupInfo
         $endpoint = $this->escaper->escapeHtml($this->getEndpointUrl());
 
         return <<<HTML
-<div class="magedevgroup-admin-scim-okta-setup">
+<div class="dmlab-admin-scim-okta-setup">
     <p>In your Okta SCIM application (Provisioning &rarr; Integration), use these settings:</p>
     <ul>
         <li><strong>SCIM connector base URL:</strong> <code>{$endpoint}</code></li>
@@ -59,7 +59,7 @@ class ScimSetupInfo
             <code>active = false</code>).</li>
     </ul>
     <p>Use the token configured under
-        <em>Stores &rarr; Configuration &rarr; MageDevGroup &rarr; Admin SCIM &rarr; Bearer Token</em>,
+        <em>Stores &rarr; Configuration &rarr; DmLab &rarr; Admin SCIM &rarr; Bearer Token</em>,
         and enable Admin SCIM there first.</p>
 </div>
 HTML;

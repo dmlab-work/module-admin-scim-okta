@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimOkta\Test\Unit;
+namespace DmLab\AdminScimOkta\Test\Unit;
 
-use MageDevGroup\AdminScim\Model\Normalization\RequestNormalizerChain;
-use MageDevGroup\AdminScimOkta\Model\Normalization\OktaRequestNormalizer;
+use DmLab\AdminScim\Model\Normalization\RequestNormalizerChain;
+use DmLab\AdminScimOkta\Model\Normalization\OktaRequestNormalizer;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -50,7 +50,7 @@ class DiConfigTest extends TestCase
     public function testRegisteredNormalizerImplementsTheExtensionPoint(): void
     {
         self::assertContains(
-            \MageDevGroup\AdminScim\Api\RequestNormalizerInterface::class,
+            \DmLab\AdminScim\Api\RequestNormalizerInterface::class,
             class_implements(OktaRequestNormalizer::class)
         );
     }

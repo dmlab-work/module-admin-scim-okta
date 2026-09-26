@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- Di-merge the Okta normalizer into admin-scim's provider-quirk seam. -->
-    <type name="MageDevGroup\AdminScim\Model\Normalization\RequestNormalizerChain">
+    <type name="DmLab\AdminScim\Model\Normalization\RequestNormalizerChain">
         <arguments>
             <argument name="normalizers" xsi:type="array">
-                <item name="okta" xsi:type="object">MageDevGroup\AdminScimOkta\Model\Normalization\OktaRequestNormalizer</item>
+                <item name="okta" xsi:type="object">DmLab\AdminScimOkta\Model\Normalization\OktaRequestNormalizer</item>
             </argument>
         </arguments>
     </type>

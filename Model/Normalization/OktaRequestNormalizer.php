@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimOkta\Model\Normalization;
+namespace DmLab\AdminScimOkta\Model\Normalization;
 
-use MageDevGroup\AdminScim\Api\RequestNormalizerInterface;
+use DmLab\AdminScim\Api\RequestNormalizerInterface;
 
 /**
  * Okta provider-quirk normalizer for the `admin-scim` server.

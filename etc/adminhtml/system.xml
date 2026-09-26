@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <!-- Add an Okta setup-info block to admin-scim's section. -->
-        <section id="magedevgroup_admin_scim">
+        <section id="dmlab_admin_scim">
             <group id="okta" translate="label" type="text" sortOrder="50"
                    showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Okta Setup</label>
@@ -16,7 +16,7 @@
                 <field id="setup_info" translate="label" type="label" sortOrder="10"
                        showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>SCIM Connector</label>
-                    <frontend_model>MageDevGroup\AdminScimOkta\Block\Adminhtml\System\Config\SetupInfo</frontend_model>
+                    <frontend_model>DmLab\AdminScimOkta\Block\Adminhtml\System\Config\SetupInfo</frontend_model>
                 </field>
             </group>
         </section>

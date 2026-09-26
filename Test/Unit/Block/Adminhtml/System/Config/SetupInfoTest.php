@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimOkta\Test\Unit\Block\Adminhtml\System\Config;
+namespace DmLab\AdminScimOkta\Test\Unit\Block\Adminhtml\System\Config;
 
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use MageDevGroup\AdminScimOkta\Block\Adminhtml\System\Config\SetupInfo;
-use MageDevGroup\AdminScimOkta\Model\Okta\ScimSetupInfo;
+use DmLab\AdminScimOkta\Block\Adminhtml\System\Config\SetupInfo;
+use DmLab\AdminScimOkta\Model\Okta\ScimSetupInfo;
 use PHPUnit\Framework\TestCase;
 
 /**

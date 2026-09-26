@@ -1,4 +1,4 @@
-# MageDevGroup_AdminScimOkta
+# DmLab_AdminScimOkta
 
 > Okta SCIM provisioning for Magento 2 admin users.
 
@@ -9,17 +9,17 @@ A thin Okta provider plugin for the [`admin-scim`](../module-admin-scim) SCIM 2.
 ## Install
 
 ```bash
-composer require magedevgroup/module-admin-scim-okta
-bin/magento module:enable MageDevGroup_AdminScimOkta
+composer require dmlab/module-admin-scim-okta
+bin/magento module:enable DmLab_AdminScimOkta
 bin/magento setup:upgrade
 ```
 
-The single `require` pulls `magedevgroup/module-admin-scim` — the whole provisioning chain installs at once.
+The single `require` pulls `dmlab/module-admin-scim` — the whole provisioning chain installs at once.
 
 ## Set up the Okta SCIM app
 
-1. In Magento, open **Stores → Configuration → MageDevGroup → Admin SCIM**, enable Admin SCIM, and set a **Bearer Token**.
-2. Read the connector base URL from **Stores → Configuration → MageDevGroup → Admin SCIM → Okta Setup**. It is this store's SCIM endpoint, e.g. `https://your-host/admin-scim/v2`.
+1. In Magento, open **Stores → Configuration → DMLab → Admin SCIM**, enable Admin SCIM, and set a **Bearer Token**.
+2. Read the connector base URL from **Stores → Configuration → DMLab → Admin SCIM → Okta Setup**. It is this store's SCIM endpoint, e.g. `https://your-host/admin-scim/v2`.
 3. In Okta, create a SCIM application, then under **Provisioning → Integration** enter:
 
    | Setting | Value |
@@ -46,8 +46,8 @@ Okta pushes SCIM 2.0 requests to the `admin-scim` endpoint. This plugin register
 
 - Magento **2.4.x**
 - PHP **8.3 – 8.5**
-- `magedevgroup/module-admin-scim` (installed automatically)
+- `dmlab/module-admin-scim` (installed automatically)
 
 ## License
 
-[OSL-3.0](LICENSE) © MageDevGroup. Commercial licensing and support: <https://magedevgroup.com>.
+[OSL-3.0](LICENSE) © DMLab. Commercial licensing and support: <https://dmlab.work>.

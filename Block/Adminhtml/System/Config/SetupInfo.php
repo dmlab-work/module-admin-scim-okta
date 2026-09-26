@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimOkta\Block\Adminhtml\System\Config;
+namespace DmLab\AdminScimOkta\Block\Adminhtml\System\Config;
 
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use MageDevGroup\AdminScimOkta\Model\Okta\ScimSetupInfo;
+use DmLab\AdminScimOkta\Model\Okta\ScimSetupInfo;
 
 /**
  * System-config frontend model rendering the Okta SCIM setup info block.
