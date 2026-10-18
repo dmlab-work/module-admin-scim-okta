@@ -1,6 +1,7 @@
 <?php
 /**
  * Copyright © DMLab. All rights reserved.
+ * Licensed under the Open Software License version 3.0 (OSL-3.0). See LICENSE.
  */
 declare(strict_types=1);
 
@@ -49,5 +50,16 @@ class SystemXmlConfigTest extends TestCase
         self::assertNotFalse($models);
         self::assertSame(1, $models->length);
         self::assertSame(SetupInfo::class, trim($models->item(0)->textContent));
+    }
+
+    public function testOktaGroupCommentIsTranslatable(): void
+    {
+        $groups = $this->xpath->query('//section[@id="dmlab_admin_scim"]/group[@id="okta"]');
+
+        self::assertNotFalse($groups);
+        self::assertSame(1, $groups->length);
+        $translate = preg_split('/\s+/', trim($groups->item(0)->getAttribute('translate')));
+        self::assertContains('label', $translate);
+        self::assertContains('comment', $translate);
     }
 }

@@ -2,6 +2,7 @@
 <!--
 /**
  * Copyright © DMLab. All rights reserved.
+ * Licensed under the Open Software License version 3.0 (OSL-3.0). See LICENSE.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,7 +10,7 @@
     <system>
         <!-- Add an Okta setup-info block to admin-scim's section. -->
         <section id="dmlab_admin_scim">
-            <group id="okta" translate="label" type="text" sortOrder="50"
+            <group id="okta" translate="label comment" type="text" sortOrder="50"
                    showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Okta Setup</label>
                 <comment>How to wire an Okta SCIM application to this store's endpoint.</comment>

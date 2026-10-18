@@ -2,9 +2,10 @@
 
 > Okta SCIM provisioning for Magento 2 admin users.
 
-![License](https://img.shields.io/badge/license-OSL--3.0-green) ![Magento](https://img.shields.io/badge/Magento-2.4-orange) ![PHP](https://img.shields.io/badge/PHP-8.3--8.5-blue) ![Version](https://img.shields.io/badge/version-0.0.1-lightgrey)
+[![CI](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml/badge.svg)](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/dmlab-work/module-admin-scim-okta/graph/badge.svg)](https://codecov.io/gh/dmlab-work/module-admin-scim-okta) [![Packagist](https://img.shields.io/packagist/dt/dmlab/module-admin-scim-okta)](https://packagist.org/packages/dmlab/module-admin-scim-okta)
+![License](https://img.shields.io/badge/license-OSL--3.0-green) ![Magento](https://img.shields.io/badge/Magento-2.4-orange) ![PHP](https://img.shields.io/badge/PHP-8.3--8.5-blue) ![Version](https://img.shields.io/badge/version-0.2.0-lightgrey)
 
-A thin Okta provider plugin for the [`admin-scim`](../module-admin-scim) SCIM 2.0 server. It normalizes Okta's SCIM specifics and documents the Okta-side setup. Okta is near RFC-standard, so the module is small: a mostly pass-through normalizer plus an admin setup surface.
+Okta setup for the [`admin-scim`](https://github.com/dmlab-work/module-admin-scim) SCIM 2.0 server: an admin panel that guides wiring an Okta SCIM app, plus the dependency that installs the core.
 
 ## Install
 
@@ -18,7 +19,7 @@ The single `require` pulls `dmlab/module-admin-scim` — the whole provisioning 
 
 ## Set up the Okta SCIM app
 
-1. In Magento, open **Stores → Configuration → DMLab → Admin SCIM**, enable Admin SCIM, and set a **Bearer Token**.
+1. In Magento, open **Stores → Configuration → DMLab → Admin SCIM**, enable Admin SCIM, set a **Bearer Token**, and leave **Provider** at **— None —** (Okta needs no request normalizer). With another `admin-scim-<idp>` plugin installed, its normalizer applies under None — uninstall it if this store provisions from Okta.
 2. Read the connector base URL from **Stores → Configuration → DMLab → Admin SCIM → Okta Setup**. It is this store's SCIM endpoint, e.g. `https://your-host/admin-scim/v2`.
 3. In Okta, create a SCIM application, then under **Provisioning → Integration** enter:
 
@@ -33,20 +34,22 @@ The single `require` pulls `dmlab/module-admin-scim` — the whole provisioning 
 
 ## Supported provisioning actions
 
-- **Create** — Okta pushes a new user → admin_user created.
-- **Update** — profile changes → admin_user updated.
-- **Deactivate / reactivate** — sent by Okta as `active = false` / `active = true`.
-- **Group push** — group membership → role mapping (standard SCIM, handled by `admin-scim`).
+- **Create** — new admin gets the Admin SCIM **Default Role** unless a pushed group maps a role.
+- **Profile update** — sent by Okta as `PUT`.
+- **Deactivate / reactivate** — `active = false` / `true`; the admin is disabled, not deleted.
+- **Group push** — create, rename, member add/remove, delete; the admin's role is re-derived via **Group → Role Map**.
+
+Only SCIM-created admins are managed; existing admins are not visible to or changed by Okta.
 
 ## How it works
 
-Okta pushes SCIM 2.0 requests to the `admin-scim` endpoint. This plugin registers an Okta request normalizer into `admin-scim`'s `RequestNormalizerInterface` seam and coerces Okta's one deviation — an `active` toggle sometimes serialized as a stringified boolean (`"true"`/`"false"`) — into a native boolean, on the top-level body (POST/PUT) and inside PATCH operations. Everything else passes through unchanged; the actual admin-user provisioning and role mapping happen in `admin-scim`.
+Okta is RFC-standard enough that `admin-scim` handles its requests directly. This plugin adds the Okta Setup panel and pulls the core.
 
 ## Requirements
 
 - Magento **2.4.x**
 - PHP **8.3 – 8.5**
-- `dmlab/module-admin-scim` (installed automatically)
+- `dmlab/module-admin-scim` **^0.2.0** (installed automatically)
 
 ## License
 

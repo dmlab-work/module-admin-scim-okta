@@ -1,12 +1,14 @@
 <?php
 /**
  * Copyright © DMLab. All rights reserved.
+ * Licensed under the Open Software License version 3.0 (OSL-3.0). See LICENSE.
  */
 declare(strict_types=1);
 
 namespace DmLab\AdminScimOkta\Model\Okta;
 
 use Magento\Framework\Escaper;
+use Magento\Framework\Phrase;
 use DmLab\AdminScim\Model\Discovery\EndpointUrlBuilder;
 
 /**
@@ -45,23 +47,57 @@ class ScimSetupInfo
     public function getHtml(): string
     {
         $endpoint = $this->escaper->escapeHtml($this->getEndpointUrl());
+        $intro = $this->escape(
+            __('In your Okta SCIM application (Provisioning → Integration), use these settings:')
+        );
+        $endpointLabel = $this->escape(__('SCIM connector base URL:'));
+        $identifierLabel = $this->escape(__('Unique identifier field for users:'));
+        $authLabel = $this->escape(__('Authentication Mode:'));
+        $authMode = $this->escape(__('HTTP Header'));
+        $actionsLabel = $this->escape(__('Supported provisioning actions:'));
+        $actions = $this->escape(__('Push New Users, Push Profile Updates, Push Groups.'));
+        $deactivation = $this->escape(
+            __('Deactivating a user in Okta disables the admin (active = false); it is not deleted.')
+        );
+        $defaultRole = $this->escape(
+            __('New users get the Admin SCIM Default Role unless a pushed group maps to a role via Group → Role Map.')
+        );
+        $scope = $this->escape(
+            __('Only SCIM-created admins are managed — existing admins are not visible to or changed by Okta.')
+        );
+        $token = $this->escape(
+            __(
+                'Use the token configured under %1, and enable Admin SCIM there first.',
+                __('Stores → Configuration → DMLab → Admin SCIM → Bearer Token')
+            )
+        );
 
         return <<<HTML
 <div class="dmlab-admin-scim-okta-setup">
-    <p>In your Okta SCIM application (Provisioning &rarr; Integration), use these settings:</p>
+    <p>{$intro}</p>
     <ul>
-        <li><strong>SCIM connector base URL:</strong> <code>{$endpoint}</code></li>
-        <li><strong>Unique identifier field for users:</strong> <code>userName</code></li>
-        <li><strong>Authentication Mode:</strong> HTTP Header &mdash;
+        <li><strong>{$endpointLabel}</strong> <code>{$endpoint}</code></li>
+        <li><strong>{$identifierLabel}</strong> <code>userName</code></li>
+        <li><strong>{$authLabel}</strong> {$authMode} &mdash;
             <code>Authorization: Bearer &lt;token&gt;</code></li>
-        <li><strong>Supported provisioning actions:</strong> Push New Users,
-            Push Profile Updates, Push Groups (deactivation is sent as
-            <code>active = false</code>).</li>
+        <li><strong>{$actionsLabel}</strong> {$actions}</li>
+        <li>{$deactivation}</li>
+        <li>{$defaultRole}</li>
+        <li>{$scope}</li>
     </ul>
-    <p>Use the token configured under
-        <em>Stores &rarr; Configuration &rarr; DmLab &rarr; Admin SCIM &rarr; Bearer Token</em>,
-        and enable Admin SCIM there first.</p>
+    <p>{$token}</p>
 </div>
 HTML;
+    }
+
+    /**
+     * Render a phrase and HTML-escape it.
+     *
+     * @param Phrase $phrase
+     * @return string
+     */
+    private function escape(Phrase $phrase): string
+    {
+        return $this->escaper->escapeHtml((string)$phrase);
     }
 }

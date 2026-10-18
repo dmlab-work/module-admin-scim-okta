@@ -1,13 +1,25 @@
 {
     "name": "dmlab/module-admin-scim-okta",
-    "description": "Okta provider plugin for the admin-scim SCIM 2.0 server — normalizes Okta's active/group-push specifics and documents the Okta SCIM app setup. Installing it pulls dmlab/module-admin-scim.",
+    "description": "Okta setup for the admin-scim SCIM 2.0 server — admin guidance for wiring an Okta SCIM app. Installing it pulls dmlab/module-admin-scim.",
     "type": "magento2-module",
     "license": "OSL-3.0",
     "version": "0.1.1",
+    "authors": [
+        {
+            "name": "DMLab",
+            "homepage": "https://dmlab.work"
+        }
+    ],
+    "homepage": "https://github.com/dmlab-work/module-admin-scim-okta",
+    "support": {
+        "issues": "https://github.com/dmlab-work/module-admin-scim-okta/issues"
+    },
     "require": {
         "php": "~8.3.0||~8.4.0||~8.5.0",
         "magento/framework": ">=103.0",
-        "dmlab/module-admin-scim": "^0.1.1"
+        "magento/module-config": "*",
+        "magento/module-backend": "*",
+        "dmlab/module-admin-scim": "^0.2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^12.0"
