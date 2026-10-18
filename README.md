@@ -2,8 +2,7 @@
 
 > Okta SCIM provisioning for Magento 2 admin users.
 
-[![CI](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml/badge.svg)](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/dmlab-work/module-admin-scim-okta/graph/badge.svg)](https://codecov.io/gh/dmlab-work/module-admin-scim-okta) [![Packagist](https://img.shields.io/packagist/dt/dmlab/module-admin-scim-okta)](https://packagist.org/packages/dmlab/module-admin-scim-okta)
-![License](https://img.shields.io/badge/license-OSL--3.0-green) ![Magento](https://img.shields.io/badge/Magento-2.4-orange) ![PHP](https://img.shields.io/badge/PHP-8.3--8.5-blue) ![Version](https://img.shields.io/badge/version-0.2.0-lightgrey)
+[![CI](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml/badge.svg)](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/dmlab-work/module-admin-scim-okta/graph/badge.svg)](https://codecov.io/gh/dmlab-work/module-admin-scim-okta) [![Packagist Version](https://img.shields.io/packagist/v/dmlab/module-admin-scim-okta)](https://packagist.org/packages/dmlab/module-admin-scim-okta) [![Downloads](https://img.shields.io/packagist/dt/dmlab/module-admin-scim-okta)](https://packagist.org/packages/dmlab/module-admin-scim-okta) [![PHP](https://img.shields.io/packagist/dependency-v/dmlab/module-admin-scim-okta/php)](https://packagist.org/packages/dmlab/module-admin-scim-okta) [![License](https://img.shields.io/packagist/l/dmlab/module-admin-scim-okta)](LICENSE) ![Magento](https://img.shields.io/badge/Magento-2.4-orange)
 
 Okta setup for the [`admin-scim`](https://github.com/dmlab-work/module-admin-scim) SCIM 2.0 server: an admin panel that guides wiring an Okta SCIM app, plus the dependency that installs the core.
 
