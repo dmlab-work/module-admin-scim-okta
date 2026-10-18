@@ -3,7 +3,7 @@
     "description": "Okta setup for the admin-scim SCIM 2.0 server — admin guidance for wiring an Okta SCIM app. Installing it pulls dmlab/module-admin-scim.",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "authors": [
         {
             "name": "DMLab",
