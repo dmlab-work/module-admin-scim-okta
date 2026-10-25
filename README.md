@@ -46,7 +46,7 @@ Okta is RFC-standard enough that `admin-scim` handles its requests directly. Thi
 
 ## Requirements
 
-- Magento **2.4.x**
+- Magento **2.4.x** (tested on 2.4.9)
 - PHP **8.3 – 8.5**
 - `dmlab/module-admin-scim` **^0.2.0** (installed automatically)
 
