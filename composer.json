@@ -1,6 +1,21 @@
 {
     "name": "dmlab/module-admin-scim-okta",
-    "description": "Okta setup for the admin-scim SCIM 2.0 server — admin guidance for wiring an Okta SCIM app. Installing it pulls dmlab/module-admin-scim.",
+    "description": "Automatic Magento admin offboarding from Okta: when a user is removed or deactivated in Okta, their Magento admin account is deactivated via SCIM. Includes the Okta setup guide; installing it pulls dmlab/module-admin-scim.",
+    "keywords": [
+        "magento2",
+        "magento2-module",
+        "magento 2",
+        "okta",
+        "scim",
+        "scim 2.0",
+        "provisioning",
+        "deprovisioning",
+        "offboarding",
+        "admin users",
+        "okta provisioning",
+        "user lifecycle"
+    ],
+    "homepage": "https://github.com/dmlab-work/module-admin-scim-okta",
     "type": "magento2-module",
     "license": "OSL-3.0",
     "version": "0.2.0",
@@ -10,19 +25,22 @@
             "homepage": "https://dmlab.work"
         }
     ],
-    "homepage": "https://github.com/dmlab-work/module-admin-scim-okta",
     "support": {
-        "issues": "https://github.com/dmlab-work/module-admin-scim-okta/issues"
+        "issues": "https://github.com/dmlab-work/module-admin-scim-okta/issues",
+        "source": "https://github.com/dmlab-work/module-admin-scim-okta"
     },
     "require": {
-        "php": "~8.3.0||~8.4.0||~8.5.0",
-        "magento/framework": ">=103.0",
-        "magento/module-config": "*",
-        "magento/module-backend": "*",
+        "php": "~8.2.0||~8.3.0||~8.4.0||~8.5.0",
+        "magento/framework": "^103.0.7",
+        "magento/module-config": "^101.2.7",
+        "magento/module-backend": "^102.0.7",
         "dmlab/module-admin-scim": "^0.2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^12.0"
+        "phpunit/phpunit": "^11.5||^12.5"
+    },
+    "suggest": {
+        "dmlab/module-admin-sso-okta": "Okta login (SSO) for the same Magento admins"
     },
     "autoload": {
         "files": [

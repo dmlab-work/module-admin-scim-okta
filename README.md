@@ -4,17 +4,20 @@
 
 [![CI](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml/badge.svg)](https://github.com/dmlab-work/module-admin-scim-okta/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/dmlab-work/module-admin-scim-okta/graph/badge.svg)](https://codecov.io/gh/dmlab-work/module-admin-scim-okta) [![Packagist Version](https://img.shields.io/packagist/v/dmlab/module-admin-scim-okta)](https://packagist.org/packages/dmlab/module-admin-scim-okta) [![Downloads](https://img.shields.io/packagist/dt/dmlab/module-admin-scim-okta)](https://packagist.org/packages/dmlab/module-admin-scim-okta) [![PHP](https://img.shields.io/packagist/dependency-v/dmlab/module-admin-scim-okta/php)](https://packagist.org/packages/dmlab/module-admin-scim-okta) [![License](https://img.shields.io/packagist/l/dmlab/module-admin-scim-okta)](LICENSE) ![Magento](https://img.shields.io/badge/Magento-2.4-orange)
 
-Okta setup for the [`admin-scim`](https://github.com/dmlab-work/module-admin-scim) SCIM 2.0 server: an admin panel that guides wiring an Okta SCIM app, plus the dependency that installs the core.
+Automatic admin offboarding: when IT removes or deactivates a user in Okta, the matching Magento admin account is deactivated (disabled, not deleted).
+New hires get their admin role from their Okta groups before they first log in.
+Install this plugin and the SCIM server comes with it.
+
+![Okta SCIM setup in Magento admin: connector base URL, userName identifier and bearer-token header](.github/images/config.png)
 
 ## Install
 
 ```bash
 composer require dmlab/module-admin-scim-okta
-bin/magento module:enable DmLab_AdminScimOkta
 bin/magento setup:upgrade
 ```
 
-The single `require` pulls `dmlab/module-admin-scim` — the whole provisioning chain installs at once.
+The `require` pulls `dmlab/module-admin-scim` — the whole provisioning chain installs at once.
 
 ## Set up the Okta SCIM app
 
@@ -33,22 +36,22 @@ The single `require` pulls `dmlab/module-admin-scim` — the whole provisioning 
 
 ## Supported provisioning actions
 
-- **Create** — new admin gets the Admin SCIM **Default Role** unless a pushed group maps a role.
-- **Profile update** — sent by Okta as `PUT`.
-- **Deactivate / reactivate** — `active = false` / `true`; the admin is disabled, not deleted.
-- **Group push** — create, rename, member add/remove, delete; the admin's role is re-derived via **Group → Role Map**.
+- **Create** — the new admin gets the **Default Role**, unless a pushed group maps a role.
+- **Profile update** — Okta sends `PUT`.
+- **Deactivate / reactivate** — `active = false` / `true`; disabled, not deleted.
+- **Group push** — create, rename, member add/remove, delete; the role is re-derived via **Group → Role Map**.
 
 Only SCIM-created admins are managed; existing admins are not visible to or changed by Okta.
 
-## How it works
-
-Okta is RFC-standard enough that `admin-scim` handles its requests directly. This plugin adds the Okta Setup panel and pulls the core.
-
 ## Requirements
 
-- Magento **2.4.x** (tested on 2.4.9)
-- PHP **8.3 – 8.5**
-- `dmlab/module-admin-scim` **^0.2.0** (installed automatically)
+Magento 2.4.7+ · PHP 8.2–8.5 · `dmlab/module-admin-scim` ^0.2.0 (installed automatically)
+
+Pairs with [admin-sso-okta](https://github.com/dmlab-work/module-admin-sso-okta) — Okta login for the same admins.
+
+## Architecture
+
+Okta is RFC-standard enough that `admin-scim` handles its requests directly; this plugin adds the Okta Setup panel and pulls the core.
 
 ## License
 

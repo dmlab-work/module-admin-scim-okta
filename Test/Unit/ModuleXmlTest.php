@@ -45,6 +45,20 @@ class ModuleXmlTest extends TestCase
         self::assertSame('^0.2.0', $this->composer()['require']['dmlab/module-admin-scim'] ?? null);
     }
 
+    public function testMagentoRequirementsAreBoundedCaretConstraints(): void
+    {
+        $magento = array_filter(
+            $this->composer()['require'],
+            static fn (string $package): bool => str_starts_with($package, 'magento/'),
+            ARRAY_FILTER_USE_KEY
+        );
+        self::assertNotEmpty($magento);
+
+        foreach ($magento as $package => $constraint) {
+            self::assertMatchesRegularExpression('/^\^\d+\.\d+\.\d+$/', $constraint, $package);
+        }
+    }
+
     /**
      * Magento modules (other than Framework) imported by non-test code, mapped to an importing file.
      *
